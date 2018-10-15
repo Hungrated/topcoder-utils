@@ -1,17 +1,18 @@
 package com.topcoder.commons.utils;
-import org.apache.log4j.*;
+import org.apache.logging.log4j.Logger;
+
 import java.util.*;
 import java.lang.*;
 /**
  * This is a utility class that provides static methods for logging method entrance, method exit and exception using Log4j library. It allows to optionally log method input/output parameters and method execution time. Exceptions are logged together with stack traces. Default priority for method entrance/exit message is DEBUG, for exceptions - ERROR; but both can be overridden.
- * 
+ *
  * Thread Safety:
  * This class is immutable and thread safe when array parameters passed to it are used by the caller in thread safe manner.
 */
 public class Log4jUtility {
 /**
  * Empty private constructor.
- * 
+ *
  * Implementation Notes:
  * Do nothing.
 */
@@ -20,13 +21,13 @@ private Log4jUtility() {
 /**
  * Logs the method entrance together with input parameters (if present). It's assumed that paramNames and paramValues contain the same number of elements.
  * When this method is used, DEBUG priority is used.
- * 
+ *
  * Parameters:
  * logger - the logger to be used (null if logging is not required to be performed)
  * signature - the signature that uniquely identifies the method (e.g. className#methodName)
  * paramNames - the names of input parameters (null of method doesn't accept any parameters)
  * paramValues - the values of input parameters
- * 
+ *
  * Implementation Notes:
  * 1. logEntrance(logger, signature, paramNames, paramValues, Priority.DEBUG);
  * @param logger the logger to be used (null if logging is not required to be performed)
@@ -38,14 +39,14 @@ public static void logEntrance(Logger logger, String signature, String[] paramNa
 }
 /**
  * Logs the method entrance together with input parameters (if present) and timestamp (optionally). It's assumed that paramNames and paramValues contain the same number of elements.
- * 
+ *
  * Parameters:
  * logger - the logger to be used (null if logging is not required to be performed)
  * signature - the signature that uniquely identifies the method (e.g. className#methodName)
  * paramNames - the names of input parameters (null of method doesn't accept any parameters)
  * paramValues - the values of input parameters
  * priority - the logging priority to be used
- * 
+ *
  * Implementation Notes:
  * 1. If logger == null then return;
  * 2. logger.log(priority, LoggingUtilityHelper.getMethodEntranceMessage(signature));
@@ -62,12 +63,12 @@ public static void logEntrance(Logger logger, String signature, String[] paramNa
 /**
  * Logs the method exit together with the returned value (if present).
  * When this method is used, method execution time is not logged and DEBUG priority is used.
- * 
+ *
  * Parameters:
  * logger - the logger to be used (null if logging is not required to be performed)
  * signature - the signature that uniquely identifies the method (e.g. className#methodName)
  * value - the value returned from the method (should contain 1 element with the returned value, or should be null if the method returns void)
- * 
+ *
  * Implementation Notes:
  * 1. logExit(logger, signature, value, null);
  * @param value the value returned from the method (should contain 1 element with the returned value, or should be null if the method returns void)
@@ -79,13 +80,13 @@ public static void logExit(Logger logger, String signature, Object[] value) {
 /**
  * Logs the method exit together with the returned value (if present) and method execution time.
  * When this method is used, DEBUG priority is used.
- * 
+ *
  * Parameters:
  * logger - the logger to be used (null if logging is not required to be performed)
  * signature - the signature that uniquely identifies the method (e.g. className#methodName)
  * value - the value returned from the method (should contain 1 element with the returned value, or should be null if the method returns void)
  * entranceTimestamp - the method entrance timestamp (null if not available), is used for calculating method execution time
- * 
+ *
  * Implementation Notes:
  * 1. logExit(logger, signature, value, entranceTimestamp, Priority.DEBUG);
  * @param value the value returned from the method (should contain 1 element with the returned value, or should be null if the method returns void)
@@ -97,14 +98,14 @@ public static void logExit(Logger logger, String signature, Object[] value, Date
 }
 /**
  * Logs the method exit together with the returned value (if present) and method execution time.
- * 
+ *
  * Parameters:
  * logger - the logger to be used (null if logging is not required to be performed)
  * signature - the signature that uniquely identifies the method (e.g. className#methodName)
  * value - the value returned from the method (should contain 1 element with the returned value, or should be null if the method returns void)
  * entranceTimestamp - the method entrance timestamp (null if not available), is used for calculating method execution time
  * priority - the logging priority to be used
- * 
+ *
  * Implementation Notes:
  * 1. If logger == null then return;
  * 2. logger.log(priority, LoggingUtilityHelper.getMethodExitMessage(signature, entranceTimestamp));
@@ -121,18 +122,18 @@ public static void logExit(Logger logger, String signature, Object[] value, Date
 /**
  * Logs the given exception.
  * When this method is used, ERROR priority is used.
- * 
+ *
  * Generic Parameters:
  * T - the type of the exception to be logged and returned
- * 
+ *
  * Parameters:
  * logger - the logger to be used (null if logging is not required to be performed)
  * signature - the signature that uniquely identifies the method (e.g. className#methodName) where the exception is logged
  * exception - the exception to be logged (assumed to be not null)
- * 
+ *
  * Returns:
  * the logged exception
- * 
+ *
  * Implementation Notes:
  * 1. Return logException(logger, signature, exception, Priority.ERROR).
  * @param exception the exception to be logged (assumed to be not null)
@@ -145,19 +146,19 @@ public static T logException<T extends Throwable>(Logger logger, String signatur
 }
 /**
  * Logs the given exception using the specified priority.
- * 
+ *
  * Generic Parameters:
  * T - the type of the exception to be logged and returned
- * 
+ *
  * Parameters:
  * logger - the logger to be used (null if logging is not required to be performed)
  * signature - the signature that uniquely identifies the method (e.g. className#methodName) where the exception is logged
  * exception - the exception to be logged (assumed to be not null)
  * priority - the logging priority to be used
- * 
+ *
  * Returns:
  * the logged exception
- * 
+ *
  * Implementation Notes:
  * 1. If logger == null then return;
  * 2. logger.log(priority, LoggingUtilityHelper.getExceptionMessage(signature, exception));
