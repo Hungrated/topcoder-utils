@@ -23,7 +23,7 @@ class ExceptionHelper {
      */
     static <T extends Throwable> T constructException(Class<T> exceptionClass, String message) throws Exception {
         Constructor<T> constructor = exceptionClass.getConstructor(String.class);
-        T result = constructor.newInstance(message);
+        T result = (T) constructor.newInstance(message);
         return result;
     }
 
@@ -39,7 +39,7 @@ class ExceptionHelper {
     static <T extends Throwable> T constructException(Class<T> exceptionClass, String message, Throwable cause)
             throws Exception {
         Constructor<T> constructor = exceptionClass.getConstructor(String.class, Throwable.class);
-        T result = constructor.newInstance(message, cause);
+        T result = (T) constructor.newInstance(message, cause);
         return result;
     }
 }
