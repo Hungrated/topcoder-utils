@@ -4,7 +4,7 @@ import java.lang.*;
 import java.lang.reflect.Constructor;
 
 /**
- * This is a static helper class that provides methods for constructing exception instances using reflection. It is used by ValidationUtility, PropertiesUtility and JDBCUtility. *
+ * This is a static helper class that provides methods for constructing exception instances using reflection. It is used by ValidationUtility, PropertiesUtility and JDBCUtility.
  */
 class ExceptionHelper {
     /**
