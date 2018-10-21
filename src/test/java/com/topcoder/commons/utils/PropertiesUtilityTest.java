@@ -199,7 +199,6 @@ public class PropertiesUtilityTest {
         Class actualValue = PropertiesUtility.getClassProperty(properties, "classProperty", requiredTrue,
                 Exception.class);
         assertEquals(TEST_VALUE, actualValue);
-        System.out.println(actualValue);
         PropertiesUtility.getClassProperty(properties, "nullClassProperty", requiredFalse, Exception.class);
     }
 
