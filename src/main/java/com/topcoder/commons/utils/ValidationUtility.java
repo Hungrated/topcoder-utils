@@ -326,40 +326,6 @@ public class ValidationUtility {
 
     /**
      * Checks whether the given map doesn't contain empty keys (strings, collection, maps). And if this condition is not met, the specified exception is thrown. Note that if map is null, exception is not thrown.
-     * <p>
-     * Generic Parameters:
-     * T - the type of the exception to be thrown when validation fails
-     * <p>
-     * Parameters:
-     * map - the map to be checked
-     * trimStrings - true if strings should be trimmed before emptiness check, false otherwise
-     * name - the name associated with the value
-     * exceptionClass - the exception class
-     * <p>
-     * Throws:
-     * T if the given map contains an empty key (string, collection or map)
-     * <p>
-     * Implementation Notes:
-     * 1. If map == null then return;
-     * 2. boolean containsEmpty = false;
-     * 3. For each key:Object from map.keySet() do:
-     * 3.1. If key is an instance of String then
-     * 3.1.1. String str = (String) key;
-     * 3.1.2. If trimStrings then
-     * 3.1.2.1. str = str.trim();
-     * 3.1.3. If str.equals("") then
-     * 3.1.3.1. containsEmpty = true;
-     * 3.1.3.2. break;
-     * 3.2. Else if key is an instance of Collection then
-     * 3.2.1. If ((Collection) key).isEmpty() then
-     * 3.2.1.1. containsEmpty = true;
-     * 3.2.1.2. break;
-     * 3.3. Else if key is an instance of Map then
-     * 3.3.1. If ((Map) key).isEmpty() then
-     * 3.3.1.1. containsEmpty = true;
-     * 3.3.1.2. break;
-     * 4. If containsEmpty then
-     * 4.1. Throw ExceptionHelper.constructException(exceptionClass, name + " should not contain empty keys");
      *
      * @param exceptionClass the exception class
      * @param name           the name associated with the value

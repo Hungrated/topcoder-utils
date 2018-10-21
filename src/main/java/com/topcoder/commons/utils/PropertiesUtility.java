@@ -50,8 +50,9 @@ public class PropertiesUtility {
      * @return the retrieved strings values (null if property is optional and missing)
      * @throws T if the property is required, but missing
      */
-    public static <T extends Throwable> String[] getStringsProperty(Properties properties, String key, String delimiter,
-                                                                    boolean required, Class<T> exceptionClass) throws T, Exception {
+    public static <T extends Throwable> String[] getStringsProperty(Properties properties, String key,
+                                                                    String delimiter, boolean required,
+                                                                    Class<T> exceptionClass) throws T, Exception {
         String value = properties.getProperty(key);
         if (value == null) {
             if (required) {
@@ -75,13 +76,13 @@ public class PropertiesUtility {
     public static <T extends Throwable> Integer getIntegerProperty(Properties properties, String key, boolean required,
                                                                    Class<T> exceptionClass) throws T, Exception {
         String value = properties.getProperty(key);
-        try {
-            if (value == null) {
-                if (required) {
-                    throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
-                }
-                return null;
+        if (value == null) {
+            if (required) {
+                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
             }
+            return null;
+        }
+        try {
             Integer result = Integer.valueOf(value);
             return result;
         } catch (NumberFormatException ex) {
@@ -103,18 +104,18 @@ public class PropertiesUtility {
     public static <T extends Throwable> Long getLongProperty(Properties properties, String key, boolean required,
                                                              Class<T> exceptionClass) throws T, Exception {
         String value = properties.getProperty(key);
-        try {
-            if (value == null) {
-                if (required) {
-                    throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
-                }
-                return null;
+        if (value == null) {
+            if (required) {
+                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
             }
+            return null;
+        }
+        try {
             Long result = Long.valueOf(value);
             return result;
         } catch (NumberFormatException ex) {
-            throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " should be a valid long " +
-                    "integer", ex);
+            throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) +
+                    " should be a valid long " + "integer", ex);
         }
     }
 
@@ -131,13 +132,13 @@ public class PropertiesUtility {
     public static <T extends Throwable> Double getDoubleProperty(Properties properties, String key, boolean required,
                                                                  Class<T> exceptionClass) throws T, Exception {
         String value = properties.getProperty(key);
-        try {
-            if (value == null) {
-                if (required) {
-                    throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
-                }
-                return null;
+        if (value == null) {
+            if (required) {
+                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
             }
+            return null;
+        }
+        try {
             ParsePosition parsePosition = new ParsePosition(0);
             Double result = (Double) NumberFormat.getInstance(Locale.US).parse(value, parsePosition);
             if (parsePosition.getIndex() != value.length()) {
@@ -176,9 +177,7 @@ public class PropertiesUtility {
         if (result == null || parsePosition.getIndex() != value.length()) {
             throw ExceptionHelper.constructException(exceptionClass,
                     getPropertyTitle(key) + " should be in format [" + format + "]");
-
         }
-
         return result;
     }
 
@@ -195,13 +194,13 @@ public class PropertiesUtility {
     public static <T extends Throwable> Class<?> getClassProperty(Properties properties, String key, boolean required,
                                                                   Class<T> exceptionClass) throws T, Exception {
         String value = properties.getProperty(key);
-        try {
-            if (value == null) {
-                if (required) {
-                    throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
-                }
-                return null;
+        if (value == null) {
+            if (required) {
+                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
             }
+            return null;
+        }
+        try {
             Class<?> result = Class.forName(value);
             return result;
         } catch (Exception ex) {
