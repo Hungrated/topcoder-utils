@@ -56,3 +56,4 @@ fabric.properties
 /utils.iml
 /target
 .DS_Store
+!/target/site/
