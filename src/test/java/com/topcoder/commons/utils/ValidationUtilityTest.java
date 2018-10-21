@@ -367,7 +367,7 @@ public class ValidationUtilityTest {
                 VARIABLE_NAME, IllegalArgumentException.class);
         ValidationUtility.checkInRange(POSITIVE_DOUBLE_VALUE, 0.0, 2.0, true, true,
                 VARIABLE_NAME, IllegalArgumentException.class);
-        ValidationUtility.checkInRange(NEGATIVE_DOUBLE_VALUE, 0.0, 2.0, false, false,
+        ValidationUtility.checkInRange(NEGATIVE_DOUBLE_VALUE, 0.0, 2.0, true, true,
                 VARIABLE_NAME, IllegalArgumentException.class);
     }
 
@@ -439,7 +439,7 @@ public class ValidationUtilityTest {
                 VARIABLE_NAME, IllegalArgumentException.class);
         ValidationUtility.checkInRange(POSITIVE_LONG_VALUE, 0, 2, true, true,
                 VARIABLE_NAME, IllegalArgumentException.class);
-        ValidationUtility.checkInRange(NEGATIVE_LONG_VALUE, 0, 2, false, false,
+        ValidationUtility.checkInRange(NEGATIVE_LONG_VALUE, 0, 2, true, true,
                 VARIABLE_NAME, IllegalArgumentException.class);
     }
 }

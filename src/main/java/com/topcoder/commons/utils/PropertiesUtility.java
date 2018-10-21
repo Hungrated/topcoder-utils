@@ -4,13 +4,21 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.*;
-import java.lang.*;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Locale;
+import java.util.Properties;
 
 /**
- * This is a utility class that provides static methods for retrieving properties of different types (String, Integer, Long, Double, Date, Class) from Properties instance. This utility throws en exception specified by the caller if required property is missing or cannot be parsed properly. getSubConfiguration() method allows to extract inner configuration from Properties instance (when "childConfigName.childPropertyName" format is used for property keys).
+ * This is a utility class that provides static methods for retrieving
+ * properties of different types (String, Integer, Long, Double, Date, Class)
+ * from Properties instance. This utility throws en exception specified by the
+ * caller if required property is missing or cannot be parsed properly.
+ * getSubConfiguration() method allows to extract inner configuration from
+ * Properties instance (when "childConfigName.childPropertyName" format is used
+ * for property keys).
  */
-public class PropertiesUtility {
+public final class PropertiesUtility {
     /**
      * Empty private constructor.
      */
@@ -20,19 +28,30 @@ public class PropertiesUtility {
     /**
      * Retrieves the string property from the given Properties instance.
      *
-     * @param exceptionClass the type of the exception to be thrown if some error occurs
+     * @param <T>            type of exception
+     * @param exceptionClass the type of the exception to be thrown if some
+     *                       error occurs
      * @param properties     the properties container
-     * @param required       true if property is required, false otherwise (if property is required, but missing, an exception is thrown)
+     * @param required       true if property is required, false otherwise
+     *                       (if property is required, but missing, an
+     *                       exception is thrown)
      * @param key            the key of the property to be retrieved
-     * @return the retrieved string property value (null if property is optional and missing)
-     * @throws T if the property is required, but missing
+     * @return the retrieved string property value (null if property is
+     * optional and missing)
+     * @throws T         if the property is required, but missing
+     * @throws Exception if the property is required, but missing
      */
-    public static <T extends Throwable> String getStringProperty(Properties properties, String key, boolean required,
-                                                                 Class<T> exceptionClass) throws T, Exception {
+    public static <T extends Throwable> String getStringProperty(
+            final Properties properties,
+            final String key,
+            final boolean required,
+            final Class<T> exceptionClass)
+            throws T, Exception {
         String value = properties.getProperty(key);
         if (value == null) {
             if (required) {
-                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
+                throw ExceptionHelper.constructException(exceptionClass,
+                        getPropertyTitle(key) + " is required");
             }
             return null;
         }
@@ -40,23 +59,35 @@ public class PropertiesUtility {
     }
 
     /**
-     * Retrieves the delimited strings property from the given Properties instance.
+     * Retrieves the delimited strings property from the given Properties
+     * instance.
      *
+     * @param <T>            type of exception
      * @param delimiter      the delimiter regular expression pattern
-     * @param exceptionClass the type of the exception to be thrown if some error occurs
+     * @param exceptionClass the type of the exception to be thrown if some
+     *                       error occurs
      * @param properties     the properties container
-     * @param required       true if property is required, false otherwise (if property is required, but missing, an exception is thrown)
+     * @param required       true if property is required, false otherwise
+     *                       (if property is required, but missing, an
+     *                       exception is thrown)
      * @param key            the key of the property to be retrieved
-     * @return the retrieved strings values (null if property is optional and missing)
-     * @throws T if the property is required, but missing
+     * @return the retrieved strings values (null if property is optional
+     * and missing)
+     * @throws T         if the property is required, but missing
+     * @throws Exception if the property is required, but missing
      */
-    public static <T extends Throwable> String[] getStringsProperty(Properties properties, String key,
-                                                                    String delimiter, boolean required,
-                                                                    Class<T> exceptionClass) throws T, Exception {
+    public static <T extends Throwable> String[] getStringsProperty(
+            final Properties properties,
+            final String key,
+            final String delimiter,
+            final boolean required,
+            final Class<T> exceptionClass)
+            throws T, Exception {
         String value = properties.getProperty(key);
         if (value == null) {
             if (required) {
-                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
+                throw ExceptionHelper.constructException(exceptionClass,
+                        getPropertyTitle(key) + " is required");
             }
             return null;
         }
@@ -66,19 +97,32 @@ public class PropertiesUtility {
     /**
      * Retrieves the integer property from the given Properties instance.
      *
-     * @param exceptionClass the type of the exception to be thrown if some error occurs
+     * @param <T>            type of exception
+     * @param exceptionClass the type of the exception to be thrown if some
+     *                       error occurs
      * @param properties     the properties container
-     * @param required       true if property is required, false otherwise (if property is required, but missing, an exception is thrown)
+     * @param required       true if property is required, false otherwise (if
+     *                       property is required, but missing, an exception
+     *                       is thrown)
      * @param key            the key of the property to be retrieved
-     * @return the retrieved integer property value (null if property is optional and missing)
-     * @throws T if the property value has invalid format or is required, but missing
+     * @return the retrieved integer property value (null if property is
+     * optional and missing)
+     * @throws T         if the property value has invalid format or is
+     *                   required, but missing
+     * @throws Exception if the property value has invalid format or is
+     *                   required, but missing
      */
-    public static <T extends Throwable> Integer getIntegerProperty(Properties properties, String key, boolean required,
-                                                                   Class<T> exceptionClass) throws T, Exception {
+    public static <T extends Throwable> Integer getIntegerProperty(
+            final Properties properties,
+            final String key,
+            final boolean required,
+            final Class<T> exceptionClass)
+            throws T, Exception {
         String value = properties.getProperty(key);
         if (value == null) {
             if (required) {
-                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
+                throw ExceptionHelper.constructException(exceptionClass,
+                        getPropertyTitle(key) + " is required");
             }
             return null;
         }
@@ -86,27 +130,40 @@ public class PropertiesUtility {
             Integer result = Integer.valueOf(value);
             return result;
         } catch (NumberFormatException ex) {
-            throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " should be a valid " +
-                    "integer", ex);
+            throw ExceptionHelper.constructException(exceptionClass,
+                    getPropertyTitle(key) + " should be a valid integer", ex);
         }
     }
 
     /**
      * Retrieves the long integer property from the given Properties instance.
      *
-     * @param exceptionClass the type of the exception to be thrown if some error occurs
+     * @param <T>            type of exception
+     * @param exceptionClass the type of the exception to be thrown if some
+     *                       error occurs
      * @param properties     the properties container
-     * @param required       true if property is required, false otherwise (if property is required, but missing, an exception is thrown)
+     * @param required       true if property is required, false otherwise
+     *                       (if property is required, but missing, an
+     *                       exception is thrown)
      * @param key            the key of the property to be retrieved
-     * @return the retrieved long integer property value (null if property is optional and missing)
-     * @throws T if the property value has invalid format or is required, but missing
+     * @return the retrieved long integer property value (null if property is
+     * optional and missing)
+     * @throws T         if the property value has invalid format or is
+     *                   required, but missing
+     * @throws Exception if the property value has invalid format
+     *                   or is required, but missing
      */
-    public static <T extends Throwable> Long getLongProperty(Properties properties, String key, boolean required,
-                                                             Class<T> exceptionClass) throws T, Exception {
+    public static <T extends Throwable> Long getLongProperty(
+            final Properties properties,
+            final String key,
+            final boolean required,
+            final Class<T> exceptionClass)
+            throws T, Exception {
         String value = properties.getProperty(key);
         if (value == null) {
             if (required) {
-                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
+                throw ExceptionHelper.constructException(exceptionClass,
+                        getPropertyTitle(key) + " is required");
             }
             return null;
         }
@@ -114,89 +171,135 @@ public class PropertiesUtility {
             Long result = Long.valueOf(value);
             return result;
         } catch (NumberFormatException ex) {
-            throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) +
-                    " should be a valid long " + "integer", ex);
+            throw ExceptionHelper.constructException(exceptionClass,
+                    getPropertyTitle(key) + " should be a valid"
+                            + " long integer", ex);
         }
     }
 
     /**
      * Retrieves the double property from the given Properties instance.
      *
-     * @param exceptionClass the type of the exception to be thrown if some error occurs
+     * @param <T>            type of exception
+     * @param exceptionClass the type of the exception to be thrown if some
+     *                       error occurs
      * @param properties     the properties container
-     * @param required       true if property is required, false otherwise (if property is required, but missing, an exception is thrown)
+     * @param required       true if property is required, false otherwise
+     *                       (if property is required, but missing, an
+     *                       exception is thrown)
      * @param key            the key of the property to be retrieved
-     * @return the retrieved double property value (null if property is optional and missing)
-     * @throws T if the property value has invalid format or is required, but missing
+     * @return the retrieved double property value (null if property is
+     * optional and missing)
+     * @throws T         if the property value has invalid format or is
+     *                   required,but missing
+     * @throws Exception if the property value has invalid format or is
+     *                   required, but missing
      */
-    public static <T extends Throwable> Double getDoubleProperty(Properties properties, String key, boolean required,
-                                                                 Class<T> exceptionClass) throws T, Exception {
+    public static <T extends Throwable> Double getDoubleProperty(
+            final Properties properties,
+            final String key,
+            final boolean required,
+            final Class<T> exceptionClass)
+            throws T, Exception {
         String value = properties.getProperty(key);
         if (value == null) {
             if (required) {
-                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
+                throw ExceptionHelper.constructException(exceptionClass,
+                        getPropertyTitle(key) + " is required");
             }
             return null;
         }
         try {
             ParsePosition parsePosition = new ParsePosition(0);
-            Double result = (Double) NumberFormat.getInstance(Locale.US).parse(value, parsePosition);
+            Double result = (Double) NumberFormat.getInstance(Locale.US)
+                    .parse(value, parsePosition);
             if (parsePosition.getIndex() != value.length()) {
-                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " should be a valid " +
-                        "double");
+                throw ExceptionHelper.constructException(exceptionClass,
+                        getPropertyTitle(key) + " should be a valid double");
             }
             return result;
         } catch (ParseException ex) {
-            throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) +
-                    " should be a valid double", ex);
+            throw ExceptionHelper.constructException(exceptionClass,
+                    getPropertyTitle(key)
+                            + " should be a valid double", ex);
         }
     }
 
     /**
      * Retrieves the date/time property from the given Properties instance.
      *
-     * @param exceptionClass the type of the exception to be thrown if some error occurs
+     * @param <T>            type of exception
+     * @param exceptionClass the type of the exception to be thrown if some
+     *                       error occurs
      * @param format         the expected date/time format string
      * @param properties     the properties container
-     * @param required       true if property is required, false otherwise (if property is required, but missing, an exception is thrown)
+     * @param required       true if property is required, false otherwise
+     *                       (if property is required, but missing, an
+     *                       exception is thrown)
      * @param key            the key of the property to be retrieved
-     * @return the retrieved date/time property value (null if property is optional and missing)
-     * @throws T if the property value has invalid format or is required, but missing
+     * @return the retrieved date/time property value (null if property is
+     * optional and missing)
+     * @throws T         if the property value has invalid format or is
+     *                   required,  but missing
+     * @throws Exception if the property value has invalid format or is
+     *                   required, but missing
      */
-    public static <T extends Throwable> Date getDateProperty(Properties properties, String key, String format,
-                                                             boolean required, Class<T> exceptionClass) throws T, Exception {
+    public static <T extends Throwable> Date getDateProperty(
+            final Properties properties,
+            final String key,
+            final String format,
+            final boolean required,
+            final Class<T> exceptionClass)
+            throws T, Exception {
         String value = properties.getProperty(key);
         if (value == null) {
             if (required) {
-                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
+                throw ExceptionHelper.constructException(exceptionClass,
+                        getPropertyTitle(key) + " is required");
             }
             return null;
         }
         ParsePosition parsePosition = new ParsePosition(0);
-        Date result = new SimpleDateFormat(format, Locale.US).parse(value, parsePosition);
+        Date result = new SimpleDateFormat(format, Locale.US)
+                .parse(value, parsePosition);
         if (result == null || parsePosition.getIndex() != value.length()) {
             throw ExceptionHelper.constructException(exceptionClass,
-                    getPropertyTitle(key) + " should be in format [" + format + "]");
+                    getPropertyTitle(key) + " should be in format ["
+                            + format + "]");
         }
         return result;
     }
 
     /**
-     * Retrieves the class property from the given Properties instance. Property value is expected to contain a full class name.
+     * Retrieves the class property from the given Properties instance.
+     * Property value is expected to contain a full class name.
      *
-     * @param exceptionClass the type of the exception to be thrown if some error occurs
+     * @param <T>            type of exception
+     * @param exceptionClass the type of the exception to be thrown if some
+     *                       error occurs
      * @param properties     the properties container
-     * @param required       true if property is required, false otherwise (if property is required, but missing, an exception is thrown)
+     * @param required       true if property is required, false otherwise
+     *                       (if property is required, but missing, an
+     *                       exception is thrown)
      * @param key            the key of the property to be retrieved
-     * @return the retrieved class property value (null if property is optional and missing)
-     * @throws T if the property value has invalid format or is required, but missing
+     * @return the retrieved class property value (null if property is
+     * optional and missing)
+     * @throws T         if the property value has invalid format or is
+     *                   required, but missing
+     * @throws Exception if the property value has invalid format or is
+     *                   required, but missing
      */
-    public static <T extends Throwable> Class<?> getClassProperty(Properties properties, String key, boolean required,
-                                                                  Class<T> exceptionClass) throws T, Exception {
+    public static <T extends Throwable> Class<?> getClassProperty(
+            final Properties properties,
+            final String key,
+            final boolean required,
+            final Class<T> exceptionClass)
+            throws T, Exception {
         String value = properties.getProperty(key);
         if (value == null) {
             if (required) {
-                throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " is required");
+                throw ExceptionHelper.constructException(exceptionClass,
+                        getPropertyTitle(key) + " is required");
             }
             return null;
         }
@@ -204,19 +307,24 @@ public class PropertiesUtility {
             Class<?> result = Class.forName(value);
             return result;
         } catch (Exception ex) {
-            throw ExceptionHelper.constructException(exceptionClass, getPropertyTitle(key) + " contains invalid full " +
-                    "class name (" + value + ")", ex);
+            throw ExceptionHelper.constructException(exceptionClass,
+                    getPropertyTitle(key) + " contains invalid full "
+                            + "class name (" + value + ")", ex);
         }
     }
 
     /**
-     * Retrieves the inner configuration from the configuration stored in Properties container.
+     * Retrieves the inner configuration from the configuration stored in
+     * Properties container.
      *
      * @param configName the name of the inner configuration
      * @param properties the properties with the main configuration
-     * @return the Properties container with the extracted inner configuration (not null)
+     * @return the Properties container with the extracted inner configuration
+     * (not null)
      */
-    public static Properties getSubConfiguration(Properties properties, String configName) {
+    public static Properties getSubConfiguration(
+            final Properties properties,
+            final String configName) {
         String prefix = configName + ".";
         Properties result = new Properties();
         Enumeration en = properties.propertyNames();
@@ -237,7 +345,7 @@ public class PropertiesUtility {
      * @param key the property key
      * @return the constructed property title
      */
-    private static String getPropertyTitle(String key) {
+    private static String getPropertyTitle(final String key) {
         return "The property '" + key + "'";
     }
 }
