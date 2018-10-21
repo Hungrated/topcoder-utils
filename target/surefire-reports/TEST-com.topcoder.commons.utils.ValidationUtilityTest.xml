@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="46" failures="0" name="com.topcoder.commons.utils.ValidationUtilityTest" time="0.216" errors="0" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib"/>
+    <property name="java.vm.version" value="25.161-b12"/>
+    <property name="gopherProxySet" value="false"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/hungrated/Documents/Codes/IDEA/utils"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/Users/hungrated/Documents/Codes/IDEA/utils"/>
+    <property name="java.runtime.version" value="1.8.0_161-b12"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.io.tmpdir" value="/var/folders/3p/8897fp6n5hx2rctdb75429lw0000gn/T/"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="net.sourceforge.cobertura.datafile" value="/Users/hungrated/Documents/Codes/IDEA/utils/target/cobertura/cobertura.ser"/>
+    <property name="classworlds.conf" value="/Users/hungrated/.maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/hungrated/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="maven.conf" value="/Users/hungrated/.maven/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.14"/>
+    <property name="library.jansi.path" value="/Users/hungrated/.maven/lib/jansi-native"/>
+    <property name="user.home" value="/Users/hungrated"/>
+    <property name="user.timezone" value="Asia/Shanghai"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="hungrated"/>
+    <property name="java.class.path" value="/Users/hungrated/.maven/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher cobertura:cobertura"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_161"/>
+    <property name="java.ext.dirs" value="/Users/hungrated/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/Users/hungrated/.maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="project.build.outputDirectory" value="/Users/hungrated/Documents/Codes/IDEA/utils/target/generated-classes/cobertura"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNull" time="0.199"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmpty" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyAfterTrimming" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNullNorEmpty" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNullNorEmptyAfterTrimming" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckInstance" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNullOrInstance" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckExists" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckIsFile" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckIsDirectory" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmpty1" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNullNorEmpty1" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmpty2" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNullNorEmpty2" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNullElements" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyElements" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyElements2" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyElements3" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNullKeys" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNullValues" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyKeys" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyKeys2" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyKeys3" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyValues" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyValues2" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotEmptyValues3" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNegative" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckPositive" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNegative" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotPositive" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotZero" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckGreaterThan" time="0.002"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckGreaterThan2" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckLessThan" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckLessThan2" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckInRange" time="0.002"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNegative2" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckPositive2" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotNegative2" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotPositive2" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckNotZero2" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckGreaterThan3" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckGreaterThan4" time="0.001"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckLessThan3" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckLessThan4" time="0"/>
+  <testcase classname="com.topcoder.commons.utils.ValidationUtilityTest" name="testCheckInRange2" time="0.001"/>
+</testsuite>

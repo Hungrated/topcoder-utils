@@ -54,6 +54,4 @@ fabric.properties
 .idea/httpRequests
 
 /utils.iml
-/target
 .DS_Store
-!/target/site/

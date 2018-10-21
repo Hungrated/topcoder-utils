@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="6.18">
+<file name="/Users/hungrated/Documents/Codes/IDEA/utils/src/main/java/com/topcoder/commons/utils/Log4jUtility.java">
+</file>
+<file name="/Users/hungrated/Documents/Codes/IDEA/utils/src/main/java/com/topcoder/commons/utils/PropertiesUtility.java">
+</file>
+<file name="/Users/hungrated/Documents/Codes/IDEA/utils/src/main/java/com/topcoder/commons/utils/ValidationUtility.java">
+</file>
+<file name="/Users/hungrated/Documents/Codes/IDEA/utils/src/main/java/com/topcoder/commons/utils/ExceptionHelper.java">
+</file>
+<file name="/Users/hungrated/Documents/Codes/IDEA/utils/src/main/java/com/topcoder/commons/utils/LoggingUtilityHelper.java">
+</file>
+<file name="/Users/hungrated/Documents/Codes/IDEA/utils/src/main/java/com/topcoder/commons/utils/package-info.java">
+</file>
+<file name="/Users/hungrated/Documents/Codes/IDEA/utils/src/main/resources/test.properties">
+</file>
+<file name="/Users/hungrated/Documents/Codes/IDEA/utils/src/main/resources/log4j.properties">
+</file>
+</checkstyle>
